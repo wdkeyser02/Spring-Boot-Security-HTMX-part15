@@ -22,7 +22,7 @@ public class SecurityConfig {
                         .deleteCookies("JSESSIONID")
                         .permitAll())
                 .authorizeHttpRequests((authorize) -> authorize
-                        .requestMatchers("/", "/public").permitAll()
+                        .requestMatchers("/", "/public", "/main").permitAll()
                         .requestMatchers("/user/**").hasRole("USER")
                         .requestMatchers("/admin/**").hasRole("ADMIN")
                         .anyRequest().authenticated()

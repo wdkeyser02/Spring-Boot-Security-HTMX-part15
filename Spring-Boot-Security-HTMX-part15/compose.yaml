@@ -1,16 +1,5 @@
 services:
 
-  #nginx
-  nginx:
-    container_name: nginx
-    image: nginx:latest
-    ports:
-      - 8888:80
-    volumes:
-      - ./src/nginx:/usr/share/nginx/html
-    networks:
-      - database
-
   # MySql Database
   db:
     container_name: MySQL
@@ -45,7 +34,6 @@ services:
 
 volumes:
   db:
-  nginx:
 
 networks:
   database:

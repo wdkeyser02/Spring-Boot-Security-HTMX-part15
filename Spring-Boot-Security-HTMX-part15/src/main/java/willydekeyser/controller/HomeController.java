@@ -15,23 +15,28 @@ public class HomeController {
     public String home() {
         return "index";
     }
+    
+    @GetMapping("/main")
+    public String main_page() {
+        return "main :: main";
+    }
 
     @GetMapping("/public")
     public String public_page() {
-        return "public";
+    	return "public :: public";    	
     }
 
     @GetMapping("/user")
     @PreAuthorize("hasRole('ROLE_USER')")
     public String private_page_user(Model model, @AuthenticationPrincipal CustomUser user) {
         model.addAttribute("user", user);
-    	return "user";
+    	return "users :: user";
     }
 
     @GetMapping("/admin")
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     public String private_page_admin(Model model, @AuthenticationPrincipal CustomUser user) {
     	model.addAttribute("user", user);
-    	return "admin";
+    	return "users :: admin";
     }
 }
